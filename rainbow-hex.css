@@ -1,0 +1,170 @@
+/* rainbow-hex.css 1.0
+   Paper and graphite, plum links, Instrument Serif / Instrument Sans / IBM Plex Mono,
+   and a seven-hue spectrum seen through hex outlines.
+   One file, no scripts, no build step. https://github.com/jwildfire/rainbow-hex  MIT.
+   Three ways to use it, lightest first:
+     1. tokens only   rainbow-hex-tokens.css (or rainbow-hex-tokens.json for R, canvas, charts)
+     2. the sheet     this file: tokens, base type and the components below
+     3. the template  index.html: copy it and this file
+   Light and dark follow the system; data-theme="light" or "dark" on the html element
+   overrides. Set --dept on the body element (or any block) to the page's own colour.
+   The rule: the spectrum is only seen through hexes or as a thin edge. */
+
+:root {
+  --bg:#fafaf8; --rail:#f3f4f1; --card:#ffffff; --ink:#1f2328; --soft:#5b6470; --faint:#98a0aa;
+  --rule:#e4e6e3; --accent:#6c3270; --accent-deep:#522456; --accent-soft:rgba(108,50,112,.12);
+  --good:#4f7f37; --warn:#a36a1c; --bad:#b0473f; --shadow:rgba(31,35,40,.12);
+  --spec-0:#d87972; --spec-1:#c78a3b; --spec-2:#77a95b; --spec-3:#00afa9; --spec-4:#519fdd; --spec-5:#988bdd; --spec-6:#c67bb6;
+  --spec:linear-gradient(90deg,var(--spec-0),var(--spec-1),var(--spec-2),var(--spec-3),var(--spec-4),var(--spec-5),var(--spec-6));
+  --hex:url("data:image/svg+xml;utf8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' width%3D'6.928' height%3D'9.000' viewBox%3D'0 0 6.928 9.000'%3E%3Cg fill%3D'none' stroke%3D'%23000' stroke-width%3D'0.9'%3E%3Cpolygon points%3D'3.464%2C0.50 6.928%2C2.50 6.928%2C6.50 3.464%2C8.50 0.000%2C6.50 0.000%2C2.50'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  --hexfield:url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'6.928'%20height%3D'12'%20viewBox%3D'0%200%206.928%2012'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23000'%20stroke-width%3D'0.7'%3E%3Cpolygon%20points%3D'3.464%2C-2.00%206.928%2C0.00%206.928%2C4.00%203.464%2C6.00%200.000%2C4.00%200.000%2C0.00'%2F%3E%3Cpolygon%20points%3D'3.464%2C10.00%206.928%2C12.00%206.928%2C16.00%203.464%2C18.00%200.000%2C16.00%200.000%2C12.00'%2F%3E%3Cpolygon%20points%3D'0.000%2C4.00%203.464%2C6.00%203.464%2C10.00%200.000%2C12.00%20-3.464%2C10.00%20-3.464%2C6.00'%2F%3E%3Cpolygon%20points%3D'6.928%2C4.00%2010.392%2C6.00%2010.392%2C10.00%206.928%2C12.00%203.464%2C10.00%203.464%2C6.00'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  --hexclip:polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  --sans:"Instrument Sans",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif; --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --dept:var(--spec-1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark) { :root:not([data-theme="light"]) {
+  --bg:#14161a; --rail:#1a1d22; --card:#1d2026; --ink:#e7e9ec; --soft:#a9b1bb; --faint:#737c87;
+  --rule:#2e333a; --accent:#d6a5d9; --accent-deep:#edcbef; --accent-soft:rgba(214,165,217,.14);
+  --good:#9cc97f; --warn:#e0b469; --bad:#e59b94; --shadow:rgba(0,0,0,.45); color-scheme:dark; } }
+:root[data-theme="dark"] {
+  --bg:#14161a; --rail:#1a1d22; --card:#1d2026; --ink:#e7e9ec; --soft:#a9b1bb; --faint:#737c87;
+  --rule:#2e333a; --accent:#d6a5d9; --accent-deep:#edcbef; --accent-soft:rgba(214,165,217,.14);
+  --good:#9cc97f; --warn:#e0b469; --bad:#e59b94; --shadow:rgba(0,0,0,.45); color-scheme:dark; }
+
+/* Base */
+*, *::before, *::after { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:400 16.5px/1.6 var(--sans); -webkit-font-smoothing:antialiased; }
+.page { max-width:820px; margin:0 auto; padding:20px 20px 56px; }
+.page.wide { max-width:1180px; }
+h1, h2, h3 { font-family:var(--serif); font-weight:400; letter-spacing:-.01em; margin:0; }
+h1 { font-size:clamp(28px,4vw,40px); line-height:1.08; }
+h2 { font-size:24px; line-height:1.15; margin:26px 0 8px; }
+h3 { font-size:19px; line-height:1.2; }
+p { margin:6px 0; } ul { margin:6px 0; padding-left:20px; } li { margin:3px 0; }
+a, a:visited { color:var(--accent); } a:hover { color:var(--accent-deep); text-underline-offset:.2em; }
+:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+.soft { color:var(--soft); } .mono, .kicker, .meta { font-family:var(--mono); }
+.kicker { font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--soft); }
+.meta { font-size:12px; color:var(--soft); }
+
+/* The hex strip: the one decoration. Use it once or twice a page, as a divider. */
+hr, .hexline { border:0; height:9px; margin:18px 0; background:var(--spec);
+  -webkit-mask:var(--hex) repeat-x left top / auto 9px; mask:var(--hex) repeat-x left top / auto 9px; }
+
+/* Card: one thing, with the page's colour on the left edge. */
+.card { background:var(--card); border:1px solid var(--rule); border-left:5px solid var(--dept); border-radius:8px; padding:12px 16px; }
+.card + .card { margin-top:8px; }
+.card > header { display:flex; gap:10px; align-items:baseline; margin-bottom:4px; }
+.card > header h3 { flex:1; }
+
+/* Small things */
+.chip { display:inline-block; font:500 11px/1 var(--mono); letter-spacing:.03em; padding:4px 7px; border-radius:99px; background:var(--accent-soft); color:var(--ink); white-space:nowrap; }
+.chip.good { background:var(--good); color:var(--bg); } .chip.bad { background:var(--bad); color:var(--bg); }
+.tag { font:500 12px/1.4 var(--mono); color:var(--soft); }
+.tag::before { content:""; display:inline-block; width:8px; height:8px; border-radius:2px; background:var(--dept); margin-right:6px; }
+.btn { font:500 12.5px/1 var(--mono); padding:6px 12px; border-radius:99px; border:1px solid var(--rule); background:var(--bg); color:var(--ink); cursor:pointer; text-decoration:none; display:inline-block; }
+.btn:hover { border-color:var(--accent); color:var(--accent); }
+.num { font-family:var(--serif); font-size:30px; line-height:1; font-variant-numeric:tabular-nums; }
+.good { color:var(--good); } .bad { color:var(--bad); }
+
+/* Rows and tables: figures line up, labels stay quiet. */
+table { border-collapse:collapse; width:100%; font-size:15px; }
+th { text-align:left; font:500 11.5px/1.4 var(--mono); letter-spacing:.04em; text-transform:uppercase; color:var(--soft); padding:6px 8px; border-bottom:1px solid var(--rule); }
+td { padding:7px 8px; border-bottom:1px solid var(--rule); vertical-align:baseline; }
+td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+tr:last-child td { border-bottom:0; }
+details > summary { cursor:pointer; color:var(--soft); font:500 12.5px/1.6 var(--mono); }
+
+/* A bar for progress against a target. --pct is the fill (0 to 100). --bar sets the fill
+   colour for one bar (default: the page's). --mark puts a thin marker at a
+   percentage, for "where today falls in the month". Status classes colour by meaning. */
+.bar { position:relative; height:8px; border-radius:99px; background:var(--rail); }
+.bar::before { content:""; position:absolute; inset:0 auto 0 0; width:min(100%, calc(var(--pct,0) * 1%)); background:var(--bar, var(--dept)); border-radius:99px; }
+.bar.good::before { background:var(--good); } .bar.warn::before { background:var(--warn); } .bar.over::before, .bar.bad::before { background:var(--bad); }
+.bar[style*="--mark"]::after { content:""; position:absolute; top:-3px; bottom:-3px; left:calc(var(--mark) * 1%); width:2px; margin-left:-1px; background:var(--ink); border-radius:1px; }
+
+/* Status colours for text: good, warn (ahead of pace, worth a look), bad. */
+.warn { color:var(--warn); } .chip.warn { background:var(--warn); color:var(--bg); }
+
+/* A stat: a small label over a figure. Put two or three in a .stats row. */
+.stats { display:flex; flex-wrap:wrap; gap:6px 28px; }
+.stat { display:grid; gap:2px; }
+.stat > .label { font:500 11px/1.3 var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+.stat > .figure { font-family:var(--serif); font-size:26px; line-height:1.05; font-variant-numeric:tabular-nums; }
+
+/* An expandable row: the summary is a full row (name, count, amount), not the small mono line. */
+details.row { border-bottom:1px solid var(--rule); }
+details.row:last-child { border-bottom:0; }
+details.row > summary { display:flex; gap:12px; align-items:baseline; padding:7px 8px; font:inherit; color:inherit; list-style:none; }
+details.row > summary::-webkit-details-marker { display:none; }
+details.row > summary::before { content:"+"; font-family:var(--mono); color:var(--soft); width:10px; flex:none; }
+details.row[open] > summary::before { content:"–"; }
+details.row > summary > :first-child { flex:1; min-width:0; }
+details.row > summary .n { font-variant-numeric:tabular-nums; white-space:nowrap; }
+details.row > :not(summary) { padding:0 8px 8px 30px; }
+
+/* Dense: for a panel shown in a frame. Put the class on the body element. */
+.dense { font-size:15px; line-height:1.45; }
+.dense td, .dense th { padding:5px 8px; } .dense details.row > summary { padding:5px 8px; }
+.dense h2 { font-size:21px; margin:16px 0 6px; } .dense .stat > .figure { font-size:23px; }
+
+/* ---- 1.0: the rainbow hex family. The spectrum is only ever seen through hexes or as a thin edge;
+   it never colours text and never fills a large plain area. ---- */
+
+/* A band of honeycomb, for the top of a page or a title slide. One a page. */
+.hexband { height:var(--band,48px); background:var(--spec);
+  -webkit-mask:var(--hexfield) repeat left top / 13.856px 24px; mask:var(--hexfield) repeat left top / 13.856px 24px; }
+.hexband.fade { -webkit-mask-image:var(--hexfield), linear-gradient(#000, transparent); mask-image:var(--hexfield), linear-gradient(#000, transparent);
+  -webkit-mask-composite:source-in; mask-composite:intersect; -webkit-mask-size:13.856px 24px, 100% 100%; mask-size:13.856px 24px, 100% 100%; -webkit-mask-repeat:repeat, no-repeat; mask-repeat:repeat, no-repeat; }
+
+/* A quiet honeycomb behind a block (a hero, an empty state). Put content inside; the pattern sits behind it. */
+.hexfield { position:relative; isolation:isolate; }
+.hexfield::before { content:""; position:absolute; inset:0; z-index:-1; background:var(--spec); opacity:var(--field,.22);
+  -webkit-mask:var(--hexfield) repeat center / 20.784px 36px; mask:var(--hexfield) repeat center / 20.784px 36px; }
+
+/* The mark: one small rainbow hex. The logo, a bullet, a favicon (hex-mark.svg is the same shape). */
+.hexmark { display:inline-block; width:var(--size,1em); aspect-ratio:0.866; vertical-align:-.12em; flex:none;
+  background:conic-gradient(from 210deg, var(--spec-0), var(--spec-1), var(--spec-2), var(--spec-3), var(--spec-4), var(--spec-5), var(--spec-6), var(--spec-0));
+  clip-path:var(--hexclip); }
+.hexmark.one { background:var(--dept); }
+
+/* A picture or an initial in a hex. Give it a width; .ring adds the spectrum as a border. */
+.hex { display:inline-grid; place-items:center; width:var(--size,64px); aspect-ratio:0.866; clip-path:var(--hexclip);
+  background:var(--dept); color:var(--bg); font:500 calc(var(--size,64px) * .34)/1 var(--mono); overflow:hidden; flex:none; }
+.hex > img { width:100%; height:100%; object-fit:cover; display:block; }
+.hex.ring { background:conic-gradient(from 210deg, var(--spec-0), var(--spec-1), var(--spec-2), var(--spec-3), var(--spec-4), var(--spec-5), var(--spec-6), var(--spec-0)); padding:3px; }
+.hex.ring > * { width:100%; height:100%; clip-path:var(--hexclip); background:var(--card); color:var(--ink); display:grid; place-items:center; object-fit:cover; }
+
+/* A list whose bullets are small hexes in the page's colour. */
+ul.hexlist { list-style:none; padding-left:4px; }
+ul.hexlist > li { position:relative; padding-left:20px; }
+ul.hexlist > li::before { content:""; position:absolute; left:0; top:.48em; width:9px; aspect-ratio:0.866; background:var(--dept); clip-path:var(--hexclip); }
+
+/* The spectrum as a thin edge: the top of a card, or under a title. */
+.spec-edge { border-top:3px solid transparent; border-image:var(--spec) 1; }
+.card.spec-edge { border-left:1px solid var(--rule); border-image:none; position:relative; overflow:hidden; padding-top:14px; }
+.card.spec-edge::before { content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--spec); }
+
+/* A top bar: the mark, a title, a few links. */
+.topbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px 18px; padding:10px 0; border-bottom:1px solid var(--rule); margin-bottom:18px; }
+.topbar .brand { display:flex; align-items:center; gap:9px; font:400 21px/1 var(--serif); color:var(--ink); text-decoration:none; margin-right:auto; }
+.topbar nav { display:flex; flex-wrap:wrap; gap:4px 16px; font:500 12.5px/1.6 var(--mono); }
+.topbar nav a { text-decoration:none; color:var(--soft); } .topbar nav a:hover, .topbar nav a[aria-current] { color:var(--accent); }
+
+/* A callout: the one line that matters, on its own. Colour by meaning, or the page's own. */
+.callout { border-left:5px solid var(--dept); background:var(--rail); border-radius:0 8px 8px 0; padding:10px 14px; margin:12px 0; }
+.callout.good { border-color:var(--good); } .callout.warn { border-color:var(--warn); } .callout.bad { border-color:var(--bad); }
+.callout.good, .callout.warn, .callout.bad { color:var(--ink); }
+.callout > :first-child { margin-top:0; } .callout > :last-child { margin-bottom:0; }
+
+/* Swatches, for a legend or a palette. */
+.swatches { display:flex; flex-wrap:wrap; gap:6px 14px; font:500 12px/1.4 var(--mono); color:var(--soft); }
+.swatches > * { display:inline-flex; align-items:center; gap:6px; }
+.swatches > *::before { content:""; width:11px; aspect-ratio:0.866; background:var(--c,var(--dept)); clip-path:var(--hexclip); }
+
+code, pre { font-family:var(--mono); font-size:.9em; }
+pre { background:var(--rail); border:1px solid var(--rule); border-radius:8px; padding:10px 12px; overflow-x:auto; white-space:pre-wrap; word-break:break-word; }
+
+@media (max-width:640px) { body { font-size:16px; } .page { padding:14px 16px 48px; } }
+@media print { body { background:#fff; } .btn, .topbar nav { display:none; } .hexfield::before { display:none; } }

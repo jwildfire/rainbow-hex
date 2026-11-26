@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rainbow hex</title>
+<link rel="icon" type="image/svg+xml" href="hex-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="rainbow-hex.css">
+</head>
+<body style="--dept:var(--spec-1)">
+<div class="hexband fade" style="--band:56px"></div>
+<main class="page">
+  <header class="topbar">
+    <a class="brand" href="#"><span class="hexmark" style="--size:22px"></span>rainbow hex</a>
+    <nav><a href="#hex">Rainbow hex</a><a href="#type">Type</a><a href="#colour">Colour</a><a href="#parts">Parts</a><a href="#use">Use it</a><a href="#rules">Rules</a></nav>
+  </header>
+  <p class="kicker">version 1.0</p>
+  <h1>One look across every project</h1>
+  <p class="soft">Paper and graphite, plum links, three typefaces, and the seven-hue spectrum seen through hexes. The base is jwildfire.github.io. This page is the template: copy it and <a href="rainbow-hex.css">rainbow-hex.css</a>.</p>
+  <div class="callout"><p>The rule of the rainbow hex: the spectrum is only seen through hexes or as a thin edge. It never colours text and never fills a plain area.</p></div>
+
+  <h2 id="hex">The rainbow hex</h2>
+  <p class="soft">One idea in five sizes. Use the strip freely; one band a page; the rest when they help.</p>
+  <section class="card">
+    <header><h3>Strip</h3><span class="meta">hr, or .hexline</span></header>
+    <hr style="margin:8px 0">
+    <p class="soft">The divider. Once or twice a page.</p>
+  </section>
+  <section class="card">
+    <header><h3>Band</h3><span class="meta">.hexband, .hexband.fade</span></header>
+    <div class="hexband" style="--band:36px;border-radius:6px"></div>
+    <p class="soft">The top of a page or a title slide. The one at the top of this page fades out.</p>
+  </section>
+  <section class="card hexfield" style="--field:.2">
+    <header><h3>Field</h3><span class="meta">.hexfield</span></header>
+    <p>A quiet honeycomb behind a block: a hero, a cover, an empty state.</p>
+    <p class="soft">Text stays graphite on top of it. Set <span class="mono">--field</span> for strength.</p>
+  </section>
+  <section class="card">
+    <header><h3>Mark, pictures, bullets</h3><span class="meta">.hexmark · .hex · .hexlist · .swatches</span></header>
+    <p style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:8px 0">
+      <span class="hexmark" style="--size:44px"></span>
+      <span class="hexmark" style="--size:22px"></span>
+      <span class="hexmark one" style="--size:22px;--dept:var(--spec-4)"></span>
+      <span class="hex ring" style="--size:64px"><span>RH</span></span>
+      <span class="hex" style="--size:52px;--dept:var(--spec-3)">fun</span>
+      <span class="hex ring" style="--size:52px"><span>JW</span></span>
+    </p>
+    <ul class="hexlist" style="--dept:var(--spec-5)"><li>A list with hex bullets in the page's colour.</li><li>For a short list that should feel like part of the brand.</li></ul>
+    <p class="swatches"><span style="--c:var(--spec-4)">series one</span><span style="--c:var(--spec-1)">series two</span><span style="--c:var(--spec-2)">series three</span></p>
+  </section>
+  <section class="card spec-edge">
+    <header><h3>Edge</h3><span class="meta">.spec-edge</span></header>
+    <p class="soft">The spectrum as a thin line on top of a card, for the one card that speaks for the whole page.</p>
+  </section>
+  <hr>
+
+  <h2 id="type">Type</h2>
+  <div class="card">
+    <h1>Heading one, Instrument Serif</h1>
+    <h2 style="margin-top:8px">Heading two</h2>
+    <h3>Heading three</h3>
+    <p>Body text is Instrument Sans at about 16 pixels. <a href="#">Links are plum</a>, orchid at night. <span class="soft">Soft text carries what matters less.</span></p>
+    <p class="meta">Meta, dates and counts are IBM Plex Mono · Sat, Nov 14, 9:55 PM</p>
+  </div>
+
+  <h2 id="colour">Colour</h2>
+  <p class="soft">Seven hues at the same lightness. A page or section takes one as its colour (set <span class="mono">--dept</span>); nothing else on the page is coloured, apart from green for good and red for bad.</p>
+  <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px">
+    <div class="card" style="--dept:var(--spec-0)"><span class="meta">spec-0</span></div>
+    <div class="card" style="--dept:var(--spec-1)"><span class="meta">spec-1</span></div>
+    <div class="card" style="--dept:var(--spec-2)"><span class="meta">spec-2</span></div>
+    <div class="card" style="--dept:var(--spec-3)"><span class="meta">spec-3</span></div>
+    <div class="card" style="--dept:var(--spec-4)"><span class="meta">spec-4</span></div>
+    <div class="card" style="--dept:var(--spec-5)"><span class="meta">spec-5</span></div>
+    <div class="card" style="--dept:var(--spec-6)"><span class="meta">spec-6</span></div>
+  </div>
+
+  <h3 style="margin-top:14px">Charts</h3>
+  <p class="soft">Use the spectrum in this order, so neighbours differ most: blue, amber, green, red, violet, teal, pink (<span class="mono">chart_order</span> in <a href="rainbow-hex-tokens.json">rainbow-hex-tokens.json</a>). Green and red also mean good and bad: do not use them as plain series next to a status.</p>
+  <div style="display:flex;align-items:flex-end;gap:6px;height:90px;margin:8px 0">
+    <div style="flex:1;height:55%;background:var(--spec-4);border-radius:3px 3px 0 0"></div><div style="flex:1;height:80%;background:var(--spec-1);border-radius:3px 3px 0 0"></div><div style="flex:1;height:42%;background:var(--spec-2);border-radius:3px 3px 0 0"></div><div style="flex:1;height:66%;background:var(--spec-0);border-radius:3px 3px 0 0"></div><div style="flex:1;height:95%;background:var(--spec-5);border-radius:3px 3px 0 0"></div><div style="flex:1;height:35%;background:var(--spec-3);border-radius:3px 3px 0 0"></div><div style="flex:1;height:60%;background:var(--spec-6);border-radius:3px 3px 0 0"></div>
+  </div>
+
+  <h2 id="parts">Parts</h2>
+  <div class="callout warn"><p>A callout: the one line that matters, on its own. <span class="mono">.callout</span>, with <span class="mono">good</span>, <span class="mono">warn</span> or <span class="mono">bad</span>.</p></div>
+  <section class="card" style="--dept:var(--spec-2)">
+    <header><h3>Budget</h3><span class="kicker">November · day 14 of 30</span><a class="btn" href="#">Details</a></header>
+    <table>
+      <tr><th>Line</th><th>So far</th><th class="n">Spent</th><th class="n">Target</th></tr>
+      <tr><td>Shopping <span class="chip">target</span></td><td style="width:40%"><div class="bar" style="--pct:36"></div></td><td class="n">36</td><td class="n soft">100</td></tr>
+      <tr><td>Food <span class="chip">target</span></td><td><div class="bar" style="--pct:49"></div></td><td class="n">49</td><td class="n soft">100</td></tr>
+      <tr><td>Travel</td><td><div class="bar over" style="--pct:100"></div></td><td class="n bad">112</td><td class="n soft">100</td></tr>
+    </table>
+    <p class="meta">Example figures, not real ones.</p>
+  </section>
+  <section class="card" style="--dept:var(--spec-2)">
+    <header><h3>Stats, bars with a marker, rows that open</h3></header>
+    <div class="stats">
+      <div class="stat"><span class="label">Spent so far</span><span class="figure">47</span></div>
+      <div class="stat"><span class="label">Typical month</span><span class="figure">100</span></div>
+      <div class="stat"><span class="label">Last month</span><span class="figure warn">112</span></div>
+    </div>
+    <p class="meta" style="margin-top:10px">The marker is where today falls in the month. Green is on pace, amber is ahead of pace, red is over.</p>
+    <div style="display:grid;gap:10px;margin:8px 0 12px">
+      <div class="bar good" style="--pct:36;--mark:47"></div>
+      <div class="bar warn" style="--pct:58;--mark:47"></div>
+      <div class="bar bad" style="--pct:100;--mark:47"></div>
+      <div class="bar" style="--pct:40;--bar:var(--spec-5)"></div>
+    </div>
+    <details class="row"><summary><span>Shopping</span><span class="n soft">12 purchases</span><span class="n">36</span></summary><p class="soft">What opens under the row: the largest items, a note, a link.</p></details>
+    <details class="row"><summary><span>Food</span><span class="n soft">31 purchases</span><span class="n">49</span></summary><p class="soft">Example figures, not real ones.</p></details>
+  </section>
+  <section class="card" style="--dept:var(--spec-4)">
+    <header><h3>A to-do</h3><span class="tag">project</span></header>
+    <p>One instruction you can act on without opening anything else. <span class="chip good">done</span> <span class="chip bad">overdue</span> <span class="chip">due Mon</span></p>
+    <details><summary>Why, and the details</summary><ul><li>Short lines, one fact each.</li><li>A link at the end: <a href="#">open the draft</a>.</li></ul></details>
+  </section>
+
+  <h2 id="use">Use it</h2>
+  <table>
+    <tr><th>You are making</th><th>Take</th><th>How</th></tr>
+    <tr><td>A new page or report</td><td>The template</td><td>Copy this page and <span class="mono">rainbow-hex.css</span>.</td></tr>
+    <tr><td>A page in a sandboxed frame</td><td>The sheet, inlined</td><td>Paste the sheet into a style element.</td></tr>
+    <tr><td>An app with its own styles</td><td>Tokens only</td><td>Link or paste <a href="rainbow-hex-tokens.css">rainbow-hex-tokens.css</a> and use the variables.</td></tr>
+    <tr><td>Charts, canvas, R</td><td>Tokens as data</td><td>Read <a href="rainbow-hex-tokens.json">rainbow-hex-tokens.json</a>.</td></tr>
+    <tr><td>A favicon or a logo</td><td>The mark</td><td><a href="hex-mark.svg">hex-mark.svg</a>.</td></tr>
+  </table>
+  <pre>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Instrument+Serif&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"&gt;
+&lt;link rel="stylesheet" href="https://jwildfire.github.io/rainbow-hex/rainbow-hex.css"&gt;
+&lt;body style="--dept:var(--spec-3)"&gt;</pre>
+
+  <h2 id="rules">Rules</h2>
+  <ul class="hexlist">
+    <li>The spectrum only through hexes or as a thin edge. One band a page, a strip or two as dividers.</li>
+    <li>No gradients on text. No emoji as icons.</li>
+    <li>One colour per page or section (<span class="mono">--dept</span>), plus green for good, amber for a look, red for bad.</li>
+    <li>Start compact; put detail behind a click.</li>
+    <li>Works at phone width and in the dark. No scripts.</li>
+  </ul>
+  <hr>
+  <p class="meta">rainbow-hex 1.0 · MIT · <a href="https://github.com/jwildfire/rainbow-hex">github.com/jwildfire/rainbow-hex</a> · the look of <a href="https://jwildfire.github.io">jwildfire.github.io</a></p>
+</main>
+</body>
+</html>
