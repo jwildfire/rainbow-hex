@@ -43,7 +43,9 @@ Also: `.card`, `.chip`, `.tag`, `.btn`, `.bar`, `.stats`, `details.row`, `.callo
 
 ## Colour
 
-Seven hues at the same lightness, `--spec-0` to `--spec-6`. A page or section takes one as
+Seven hues at the same lightness, `--spec-0` to `--spec-6`. They are for fills, edges and the hex. For chart lines,
+points, small symbols and coloured text on a light background use the deeper set, `--mark-0` to
+`--mark-6` (4.5 to 1 or better on paper). A page or section takes one as
 its own (`--dept`). Light and dark follow the system; `data-theme="light"` or `"dark"` on
 the `html` element overrides.
 

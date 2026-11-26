@@ -1,5 +1,5 @@
 {
- "version": "1.0",
+ "version": "1.1",
  "about": "Colours and type of rainbow-hex.css, for R, canvas and chart code.",
  "light": {
   "bg": "#fafaf8",
@@ -23,6 +23,13 @@
   "spec-4": "#519fdd",
   "spec-5": "#988bdd",
   "spec-6": "#c67bb6",
+  "mark-0": "#b15651",
+  "mark-1": "#9f6401",
+  "mark-2": "#4e7e31",
+  "mark-3": "#007f7a",
+  "mark-4": "#2577b2",
+  "mark-5": "#7567b5",
+  "mark-6": "#a15992",
   "sans": "\"Instrument Sans\",system-ui,sans-serif",
   "serif": "\"Instrument Serif\",Georgia,serif",
   "mono": "\"IBM Plex Mono\",ui-monospace,\"SF Mono\",Menlo,monospace",
@@ -50,6 +57,13 @@
   "spec-4": "#519fdd",
   "spec-5": "#988bdd",
   "spec-6": "#c67bb6",
+  "mark-0": "var(--spec-0)",
+  "mark-1": "var(--spec-1)",
+  "mark-2": "var(--spec-2)",
+  "mark-3": "var(--spec-3)",
+  "mark-4": "var(--spec-4)",
+  "mark-5": "var(--spec-5)",
+  "mark-6": "var(--spec-6)",
   "sans": "\"Instrument Sans\",system-ui,sans-serif",
   "serif": "\"Instrument Serif\",Georgia,serif",
   "mono": "\"IBM Plex Mono\",ui-monospace,\"SF Mono\",Menlo,monospace",
@@ -72,6 +86,25 @@
   "#988bdd",
   "#00afa9",
   "#c67bb6"
+ ],
+ "marks": [
+  "#b15651",
+  "#9f6401",
+  "#4e7e31",
+  "#007f7a",
+  "#2577b2",
+  "#7567b5",
+  "#a15992"
+ ],
+ "marks_about": "For lines, points, small symbols and coloured text on a light background: 4.5 to 1 or better on paper. On a dark background use spectrum.",
+ "chart_order_marks": [
+  "#2577b2",
+  "#9f6401",
+  "#4e7e31",
+  "#b15651",
+  "#7567b5",
+  "#007f7a",
+  "#a15992"
  ],
  "fonts": {
   "serif": "Instrument Serif",

@@ -16,7 +16,7 @@
     <a class="brand" href="#"><span class="hexmark" style="--size:22px"></span>rainbow hex</a>
     <nav><a href="#hex">Rainbow hex</a><a href="#type">Type</a><a href="#colour">Colour</a><a href="#parts">Parts</a><a href="#use">Use it</a><a href="#rules">Rules</a></nav>
   </header>
-  <p class="kicker">version 1.0</p>
+  <p class="kicker">version 1.1</p>
   <h1>One look across every project</h1>
   <p class="soft">Paper and graphite, plum links, three typefaces, and the seven-hue spectrum seen through hexes. The base is jwildfire.github.io. This page is the template: copy it and <a href="rainbow-hex.css">rainbow-hex.css</a>.</p>
   <div class="callout"><p>The rule of the rainbow hex: the spectrum is only seen through hexes or as a thin edge. It never colours text and never fills a plain area.</p></div>
@@ -84,6 +84,17 @@
     <div style="flex:1;height:55%;background:var(--spec-4);border-radius:3px 3px 0 0"></div><div style="flex:1;height:80%;background:var(--spec-1);border-radius:3px 3px 0 0"></div><div style="flex:1;height:42%;background:var(--spec-2);border-radius:3px 3px 0 0"></div><div style="flex:1;height:66%;background:var(--spec-0);border-radius:3px 3px 0 0"></div><div style="flex:1;height:95%;background:var(--spec-5);border-radius:3px 3px 0 0"></div><div style="flex:1;height:35%;background:var(--spec-3);border-radius:3px 3px 0 0"></div><div style="flex:1;height:60%;background:var(--spec-6);border-radius:3px 3px 0 0"></div>
   </div>
 
+  <p class="soft">For lines, points, small symbols and coloured text on a light background, use the deeper set, <span class="mono">--mark-0</span> to <span class="mono">--mark-6</span> (<span class="mono">marks</span> in the tokens file). The spectrum itself is for fills, edges and the hex. In the dark the two sets are the same.</p>
+  <svg viewBox="0 0 700 90" style="width:100%;height:auto" role="img" aria-label="Seven lines in the deeper chart colours">
+    <g fill="none" stroke-width="2.5" stroke-linecap="round">
+      <polyline stroke="var(--mark-4)" points="0,70 100,52 200,58 300,30 400,36 500,18 600,24 700,10"/>
+      <polyline stroke="var(--mark-1)" points="0,40 100,44 200,30 300,50 400,42 500,56 600,40 700,48"/>
+      <polyline stroke="var(--mark-2)" points="0,82 100,74 200,78 300,66 400,70 500,60 600,64 700,52"/>
+      <polyline stroke="var(--mark-0)" points="0,20 100,28 200,22 300,40 400,60 500,66 600,74 700,80"/>
+    </g>
+  </svg>
+  <p class="swatches"><span style="--c:var(--mark-4)">mark-4</span><span style="--c:var(--mark-1)">mark-1</span><span style="--c:var(--mark-2)">mark-2</span><span style="--c:var(--mark-0)">mark-0</span><span style="--c:var(--mark-5)">mark-5</span><span style="--c:var(--mark-3)">mark-3</span><span style="--c:var(--mark-6)">mark-6</span></p>
+
   <h2 id="parts">Parts</h2>
   <div class="callout warn"><p>A callout: the one line that matters, on its own. <span class="mono">.callout</span>, with <span class="mono">good</span>, <span class="mono">warn</span> or <span class="mono">bad</span>.</p></div>
   <section class="card" style="--dept:var(--spec-2)">
@@ -142,7 +153,7 @@
     <li>Works at phone width and in the dark. No scripts.</li>
   </ul>
   <hr>
-  <p class="meta">rainbow-hex 1.0 · MIT · <a href="https://github.com/jwildfire/rainbow-hex">github.com/jwildfire/rainbow-hex</a> · the look of <a href="https://jwildfire.github.io">jwildfire.github.io</a></p>
+  <p class="meta">rainbow-hex 1.1 · MIT · <a href="https://github.com/jwildfire/rainbow-hex">github.com/jwildfire/rainbow-hex</a> · the look of <a href="https://jwildfire.github.io">jwildfire.github.io</a></p>
 </main>
 </body>
 </html>
